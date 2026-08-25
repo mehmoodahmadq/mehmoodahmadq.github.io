@@ -228,35 +228,6 @@
   .card p { margin: 0; font-size: 0.85rem; color: var(--fg-dim); line-height: 1.6; }
   .card .emoji { font-size: 1.1rem; margin-right: 7px; }
 
-  /* ── experience / git log ────────────────────── */
-  .log { border-left: 2px solid var(--border); margin-left: 7px; padding-left: 0; }
-  .commit { position: relative; padding: 0 0 30px 28px; }
-  .commit::before {
-    content: "●";
-    position: absolute; left: -9px; top: -2px;
-    color: var(--accent, var(--green));
-    font-size: 0.95rem;
-    background: var(--bg);
-    line-height: 1;
-  }
-  .commit:last-child { padding-bottom: 6px; }
-  .commit-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 3px; }
-  .commit-head h3 { font-size: 1rem; font-weight: 700; margin: 0; color: var(--fg); }
-  .commit-when { font-size: 0.76rem; color: var(--amber); }
-  .commit-tag {
-    font-size: 0.72rem; color: var(--accent, var(--green));
-    border: 1px solid var(--border-hi); background: var(--bg-chip);
-    border-radius: 5px; padding: 1px 8px;
-  }
-  .commit ul { margin: 10px 0 0; padding-left: 0; list-style: none; }
-  .commit li {
-    font-size: 0.855rem; color: var(--fg-dim);
-    margin-bottom: 6px; padding-left: 18px; position: relative;
-  }
-  .commit li::before {
-    content: "▸"; position: absolute; left: 0; color: var(--fg-faint);
-  }
-
   /* ── skills ──────────────────────────────────── */
   .skill-block { margin-bottom: 18px; }
   .skill-label { font-size: 0.8rem; margin-bottom: 8px; color: var(--fg-faint); }
@@ -325,6 +296,40 @@
     color: var(--accent, var(--green)); line-height: 1.15;
   }
   .stat span { font-size: 0.71rem; color: var(--fg-dim); }
+
+  /* ── outcomes log ────────────────────────────── */
+  .logbox {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 4px;
+    overflow-x: auto;
+  }
+  .logline {
+    display: grid;
+    grid-template-columns: 76px minmax(150px, 1fr) minmax(120px, auto) minmax(180px, 1.3fr);
+    gap: 14px;
+    align-items: baseline;
+    padding: 9px 16px;
+    font-size: 0.82rem;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    white-space: nowrap;
+  }
+  .logline:last-child { border-bottom: none; }
+  .logline:hover { background: rgba(255,255,255,0.02); }
+  .lvl { font-weight: 700; font-size: 0.76rem; }
+  .lvl.ok  { color: var(--green); }
+  .lvl.run { color: var(--amber); }
+  .what { color: var(--fg); }
+  .val  { font-weight: 700; }
+  .val.g { color: var(--green); }   .val.c { color: var(--cyan); }
+  .val.a { color: var(--amber); }   .val.m { color: var(--magenta); }
+  .val.p { color: var(--purple); }
+  .note { color: var(--fg-faint); font-size: 0.76rem; white-space: normal; }
+  @media (max-width: 720px) {
+    .logline { grid-template-columns: 64px 1fr; row-gap: 3px; white-space: normal; }
+    .logline .val, .logline .note { grid-column: 2; }
+  }
 
   /* ── footer ──────────────────────────────────── */
   footer { padding: 44px 0 64px; }
@@ -428,7 +433,8 @@
   <div class="wrap">
     <ul>
       <li><a href="#offer">~/what-i-do</a></li>
-      <li><a href="#experience">~/experience</a></li>
+      <li><a href="#outcomes">~/outcomes</a></li>
+      <li><a href="#how-i-work">~/how-i-work</a></li>
       <li><a href="#skills">~/skills</a></li>
       <li><a href="#domains">~/domains</a></li>
       <li><a href="#contact">~/contact</a></li>
@@ -475,118 +481,58 @@
 </section>
 
 <!-- ══════════ EXPERIENCE ══════════ -->
-<section id="experience">
+<!-- ══════════ OUTCOMES ══════════ -->
+<section id="outcomes">
   <div class="wrap">
     <div class="sec-head">
-      <p class="prompt"><span class="u">mehmood@dev</span><span class="s">:</span><span class="p">~</span><span class="s">$</span> <span class="c">git log</span> <span class="flag">--career --oneline</span></p>
+      <p class="prompt"><span class="u">mehmood@dev</span><span class="s">:</span><span class="p">~</span><span class="s">$</span> <span class="c">tail -f</span> <span class="flag">outcomes.log</span></p>
       <div class="rule">╔══════════════════════════════════════════════════════════════════════════╗</div>
     </div>
 
-    <div class="log">
+    <div class="logbox">
+      <div class="logline"><span class="lvl ok">[  OK  ]</span><span class="what">API response time</span><span class="val g">−80%</span><span class="note">identity verification platform, rebuilt hot path</span></div>
+      <div class="logline"><span class="lvl ok">[  OK  ]</span><span class="what">Deployment time</span><span class="val g">−30%</span><span class="note">pipeline rework, dev → stage → prod</span></div>
+      <div class="logline"><span class="lvl ok">[  OK  ]</span><span class="what">Sprint velocity</span><span class="val c">+20%</span><span class="note">JIRA workflow overhaul across squads</span></div>
+      <div class="logline"><span class="lvl ok">[  OK  ]</span><span class="what">Database migration</span><span class="val a">MySQL → PostgreSQL</span><span class="note">zero data loss, scale headroom</span></div>
+      <div class="logline"><span class="lvl ok">[  OK  ]</span><span class="what">Team scale</span><span class="val m">2 → 15 engineers</span><span class="note">frontend, backend, mobile</span></div>
+      <div class="logline"><span class="lvl ok">[  OK  ]</span><span class="what">Products shipped</span><span class="val p">12+</span><span class="note">healthcare, fintech, crypto, security, commerce</span></div>
+      <div class="logline"><span class="lvl run">[ LIVE ]</span><span class="what">Uptime on prod systems</span><span class="val g">still running</span><span class="note">some of it for 8+ years</span></div>
+    </div>
+  </div>
+</section>
 
-      <div class="commit" style="--accent: var(--green)">
-        <div class="commit-head">
-          <h3>🩺 Solutions Architect / Software Engineer</h3>
-          <span class="commit-when">Dec 2024 → now</span>
-          <span class="commit-tag">healthcare + AI</span>
-        </div>
-        <ul>
-          <li>Designed cost-effective AWS solutions — EKS, Route 53, API Gateway, CDN, ALB — with the solutions architecture team.</li>
-          <li>Drew the system architecture diagrams behind scalable deployments, alongside DevOps.</li>
-          <li>Tested models and shipped AI agents into production with the data science team.</li>
-          <li>Led a dev team through JIRA: timelines, sprints, ticketing workflows.</li>
-          <li>Wrote proposal docs for new leads, feeding business growth and client acquisition.</li>
-          <li>Dug into healthcare workflows — DMEs, clinical staff, CPAP, RPM, CCM — to design real automation.</li>
-          <li>Architected backend services and microservices for compliance-driven healthcare ops.</li>
-          <li>Mined patient device data for patterns that predict therapy compliance and flag risk early.</li>
-        </ul>
+<!-- ══════════ HOW I WORK ══════════ -->
+<section id="how-i-work">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="prompt"><span class="u">mehmood@dev</span><span class="s">:</span><span class="p">~</span><span class="s">$</span> <span class="c">./how-i-work.sh</span> <span class="flag">--verbose</span></p>
+      <div class="rule">╔══════════════════════════════════════════════════════════════════════════╗</div>
+    </div>
+    <div class="grid">
+      <div class="card" style="--accent: var(--green)">
+        <h3><span class="emoji">🧭</span>Architecture before code</h3>
+        <p>Diagrams first, cost model second, keyboard third. I have watched too many systems get expensive in month nine because nobody drew the thing in week one.</p>
       </div>
-
-      <div class="commit" style="--accent: var(--cyan)">
-        <div class="commit-head">
-          <h3>💰 Principal Software Engineer</h3>
-          <span class="commit-when">Apr 2023 → Dec 2024</span>
-          <span class="commit-tag">fintech + banking</span>
-        </div>
-        <ul>
-          <li>Integrated Plaid and FIS for seamless transactions and real-time ledger updates.</li>
-          <li>Built secure APIs and transaction validation for a banking client — reliability way up.</li>
-          <li>Implemented AWS Cognito for auth and scalable access management.</li>
-          <li>Built CloudWatch dashboards covering server logs, security signals and user activity.</li>
-        </ul>
+      <div class="card" style="--accent: var(--red)">
+        <h3><span class="emoji">🔐</span>Security is not a phase</h3>
+        <p>Threat modelling, OWASP patterns and key management belong in the first sprint. Retrofitting them onto a live fintech ledger is a bad week for everyone.</p>
       </div>
-
-      <div class="commit" style="--accent: var(--magenta)">
-        <div class="commit-head">
-          <h3>📸 Principal Software Engineer</h3>
-          <span class="commit-when">Nov 2022 → Apr 2023</span>
-          <span class="commit-tag">elixir + ecommerce</span>
-        </div>
-        <ul>
-          <li>Built a full-stack photography eCommerce platform in Elixir for digital photo sales and editing.</li>
-          <li>Integrated secure payment gateways to smooth out transactions.</li>
-          <li>Tuned system performance for scale.</li>
-        </ul>
+      <div class="card" style="--accent: var(--amber)">
+        <h3><span class="emoji">📏</span>Boring where it counts</h3>
+        <p>Postgres, queues, and clear service boundaries carry more weight than novelty. I save the interesting choices for the problems that actually need them.</p>
       </div>
-
-      <div class="commit" style="--accent: var(--red)">
-        <div class="commit-head">
-          <h3>🛡️ Principal Software Engineer</h3>
-          <span class="commit-when">Dec 2019 → Nov 2022</span>
-          <span class="commit-tag">cybersecurity</span>
-        </div>
-        <ul>
-          <li>Led full-stack development for PAM, SIEM/SOAR, Zero Trust networks and licensing systems — OWASP patterns and cryptography throughout.</li>
-          <li>Built secure integrations with storage systems, disks and encrypted credential vaults (think LastPass), plus GCP deployments.</li>
-          <li>Owned merges, PR reviews and deploys across dev/stage/prod over SSH — including on-prem binary deployments for enterprise clients.</li>
-          <li>Built microservice APIs, real-time socket systems, and Kafka/RabbitMQ pipelines.</li>
-          <li>Shipped with globally distributed teams across time zones.</li>
-        </ul>
+      <div class="card" style="--accent: var(--cyan)">
+        <h3><span class="emoji">🗣️</span>I talk to the domain</h3>
+        <p>Clinical staff, compliance officers, bank ops. The workflow research is the work — you cannot automate a process you have only read a ticket about.</p>
       </div>
-
-      <div class="commit" style="--accent: var(--purple)">
-        <div class="commit-head">
-          <h3>⛓️ Senior Software Engineer</h3>
-          <span class="commit-when">May 2019 → Dec 2019</span>
-          <span class="commit-tag">blockchain</span>
-        </div>
-        <ul>
-          <li>Built the backend for an Ethereum-based eCommerce app across web and mobile.</li>
-          <li>Led a team of <b>6</b> — frontend, backend, mobile — and owned the integration seams.</li>
-          <li>Built marketplace, admin and user panels in Laravel.</li>
-          <li>Integrated Ethereum for wallet connections and secure coin transfers.</li>
-          <li>Wired up multiple payment gateways and managed dev/test/prod deployment.</li>
-        </ul>
+      <div class="card" style="--accent: var(--magenta)">
+        <h3><span class="emoji">🧑‍🏫</span>Teams outlast projects</h3>
+        <p>PR reviews as teaching, not gatekeeping. Sprints people can actually finish. The goal is a team that ships well after I hand it over.</p>
       </div>
-
-      <div class="commit" style="--accent: var(--amber)">
-        <div class="commit-head">
-          <h3>🪪 Senior Software Engineer</h3>
-          <span class="commit-when">Aug 2017 → Apr 2019</span>
-          <span class="commit-tag">identity + AML</span>
-        </div>
-        <ul>
-          <li>Designed and built an ID verification API from scratch.</li>
-          <li>Cut API response time by <b>80%</b> ⚡ and deployment time by <b>30%</b>.</li>
-          <li>Migrated MySQL → PostgreSQL for scalability.</li>
-          <li>Wrote the API docs that third parties integrated against.</li>
-          <li>Built a responsive Vue.js verification UI.</li>
-          <li>Baked in AML compliance and data security for regulatory adherence.</li>
-        </ul>
+      <div class="card" style="--accent: var(--purple)">
+        <h3><span class="emoji">📦</span>Owned end to end</h3>
+        <p>From architecture diagram to on-prem binary on a client's own hardware. I stay on the thing until it is running in production and someone else can operate it.</p>
       </div>
-
-      <div class="commit" style="--accent: var(--blue)">
-        <div class="commit-head">
-          <h3>🎨 Web Designer &amp; Developer</h3>
-          <span class="commit-when">Jul 2015 → Jun 2017</span>
-          <span class="commit-tag">where it started</span>
-        </div>
-        <ul>
-          <li>Built and shipped WordPress and OpenCart eCommerce sites, cPanel and all.</li>
-          <li>Improved UI/UX, SEO and page speed across devices.</li>
-        </ul>
-      </div>
-
     </div>
   </div>
 </section>

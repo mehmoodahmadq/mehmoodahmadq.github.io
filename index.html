@@ -8,6 +8,16 @@
 <meta property="og:title" content="mehmood@dev:~$ whoami">
 <meta property="og:description" content="Lead Full Stack Developer · Fintech · Cybersecurity · Cloud Architecture">
 <meta property="og:type" content="profile">
+<meta property="og:url" content="https://mehmoodahmadq.github.io/">
+<meta property="og:image" content="https://mehmoodahmadq.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mehmood Ahmad Qureshi — Lead Full Stack Developer and Solutions Architect">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mehmood Ahmad Qureshi — Lead Full Stack Developer">
+<meta name="twitter:description" content="Backends behind payment rails, security platforms and healthcare systems.">
+<meta name="twitter:image" content="https://mehmoodahmadq.github.io/og.png">
+<link rel="canonical" href="https://mehmoodahmadq.github.io/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +31,7 @@
     --border-hi: #2d3b4a;
     --fg:        #cbd5e1;
     --fg-dim:    #7c8b9c;
-    --fg-faint:  #4d5b6b;
+    --fg-faint:  #74838f;
     --green:     #4ade80;
     --cyan:      #38dcd8;
     --blue:      #60a5fa;
@@ -102,6 +112,11 @@
     background-clip: text;
     color: transparent;
     white-space: pre;
+  }
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px;
+    margin: -1px; padding: 0; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap; border: 0;
   }
   .role {
     margin: 16px 0 0;
@@ -339,6 +354,20 @@
     .logline .val, .logline .note { grid-column: 2; }
   }
 
+  /* ── keyboard accessibility ──────────────────── */
+  :focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .skip {
+    position: absolute; left: -9999px; top: 0;
+    background: var(--green); color: #06231a;
+    padding: 10px 16px; font-weight: 700; z-index: 200;
+    border-radius: 0 0 8px 0;
+  }
+  .skip:focus { left: 0; text-decoration: none; }
+
   /* ── footer ──────────────────────────────────── */
   footer { padding: 44px 0 64px; }
   .foot-box {
@@ -366,6 +395,8 @@
 </head>
 <body>
 
+<a class="skip" href="#offer">Skip to content</a>
+
 <div class="wrap">
   <div class="term">
     <div class="term-bar">
@@ -377,7 +408,7 @@
       <p class="prompt"><span class="u">mehmood@dev</span><span class="s">:</span><span class="p">~</span><span class="s">$</span> <span class="c">./whoami.sh</span></p>
 
       <div class="banner-scroll">
-<pre class="banner">
+<pre class="banner" aria-hidden="true">
 ███╗   ███╗███████╗██╗  ██╗███╗   ███╗ ██████╗  ██████╗ ██████╗
 ████╗ ████║██╔════╝██║  ██║████╗ ████║██╔═══██╗██╔═══██╗██╔══██╗
 ██╔████╔██║█████╗  ███████║██╔████╔██║██║   ██║██║   ██║██║  ██║
@@ -387,6 +418,7 @@
 </pre>
       </div>
 
+      <h1 class="visually-hidden">Mehmood Ahmad Qureshi</h1>
       <p class="role">Lead Full Stack Developer &amp; Solutions Architect</p>
 
       <p class="subline">I build the backends behind payment rails, security platforms and healthcare systems — plus the cloud architecture holding them up.</p>
@@ -428,12 +460,12 @@
 </div>
 
 <div class="wrap">
-  <div class="stats">
-    <div class="stat" style="--accent: var(--green)"><b>10</b><span>years building</span></div>
-    <div class="stat" style="--accent: var(--cyan)"><b>12+</b><span>products shipped</span></div>
-    <div class="stat" style="--accent: var(--amber)"><b>80%</b><span>faster APIs</span></div>
-    <div class="stat" style="--accent: var(--red)"><b>30%</b><span>faster deploys</span></div>
-    <div class="stat" style="--accent: var(--magenta)"><b>15</b><span>engineers led</span></div>
+  <div class="stats" role="list" aria-label="Career highlights">
+    <div class="stat" role="listitem" style="--accent: var(--green)"><b>10</b><span>years building</span></div>
+    <div class="stat" role="listitem" style="--accent: var(--cyan)"><b>12+</b><span>products shipped</span></div>
+    <div class="stat" role="listitem" style="--accent: var(--amber)"><b>80%</b><span>faster APIs</span></div>
+    <div class="stat" role="listitem" style="--accent: var(--red)"><b>30%</b><span>faster deploys</span></div>
+    <div class="stat" role="listitem" style="--accent: var(--magenta)"><b>15</b><span>engineers led</span></div>
   </div>
 </div>
 

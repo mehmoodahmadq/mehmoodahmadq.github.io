@@ -103,12 +103,27 @@
     color: transparent;
     white-space: pre;
   }
+  .role {
+    margin: 16px 0 0;
+    font-size: clamp(1rem, 2.6vw, 1.22rem);
+    font-weight: 700;
+    color: var(--fg);
+    letter-spacing: -0.01em;
+  }
   .subline {
     color: var(--fg-dim);
-    font-size: 0.86rem;
-    margin: 10px 0 0;
+    font-size: 0.88rem;
+    margin: 8px 0 0;
+    max-width: 62ch;
+    line-height: 1.6;
   }
-  .subline b { color: var(--amber); font-weight: 500; }
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 6px 20px;
+    margin: 16px 0 0;
+    font-size: 0.79rem;
+    color: var(--fg-faint);
+  }
+  .meta b { color: var(--fg-dim); font-weight: 500; }
 
   /* ── prompt lines ────────────────────────────── */
   .prompt {
@@ -359,12 +374,14 @@
 </pre>
       </div>
 
-      <p class="subline">👋 Hey — I'm <b>Mehmood Ahmad Qureshi</b>. I build things that move money, catch attackers, and keep patients safe.</p>
+      <p class="role">Lead Full Stack Developer &amp; Solutions Architect</p>
 
-      <p class="out" style="margin-top:18px">
-        <span class="ok">➜</span> <span class="hi">Lead Full Stack Developer</span> &amp; Solutions Architect<br>
-        <span class="ok">➜</span> 🗓️ <span class="hi">10 years</span> shipping production systems &nbsp;·&nbsp; 📍 Lahore, Pakistan (PKT)<br>
-        <span class="ok">➜</span> 🏆 5th nationally, ACM-ICPC Lahore Regional &nbsp;·&nbsp; ☕ caffeine → microservices since 2015
+      <p class="subline">I build the backends behind payment rails, security platforms and healthcare systems — plus the cloud architecture holding them up.</p>
+
+      <p class="meta">
+        <span>🗓️ <b>10 years</b> in production</span>
+        <span>📍 Lahore, Pakistan · PKT</span>
+        <span>🏆 ACM-ICPC Lahore Regional, <b>5th nationally</b></span>
       </p>
 
       <div class="badges">
@@ -380,7 +397,7 @@
         <span class="pulse"></span>
         <div>
           <b>Available now</b> — open to lead engineering &amp; solutions architecture roles.<br>
-          <span class="dim">Contract or full-time &nbsp;·&nbsp; remote-first &nbsp;·&nbsp; PKT, overlapping EU all day and US-East mornings.</span>
+          <span class="dim">Contract or full-time &nbsp;·&nbsp; remote-first &nbsp;·&nbsp; overlapping EU all day, US-East mornings.</span>
         </div>
       </div>
 

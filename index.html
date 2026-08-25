@@ -279,7 +279,7 @@
   /* ── stat strip ──────────────────────────────── */
   .stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(142px, 1fr));
     gap: 10px;
     margin-top: 16px;
   }
@@ -295,7 +295,14 @@
     display: block; font-size: 1.5rem; font-weight: 700;
     color: var(--accent, var(--green)); line-height: 1.15;
   }
-  .stat span { font-size: 0.71rem; color: var(--fg-dim); }
+  .stat span {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--fg-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   /* ── outcomes log ────────────────────────────── */
   .logbox {
@@ -420,12 +427,12 @@
 
 <div class="wrap">
   <div class="stats">
-    <div class="stat" style="--accent: var(--green)"><b>10</b><span>years shipping</span></div>
-    <div class="stat" style="--accent: var(--cyan)"><b>12+</b><span>products in prod</span></div>
-    <div class="stat" style="--accent: var(--amber)"><b>80%</b><span>API latency cut</span></div>
-    <div class="stat" style="--accent: var(--magenta)"><b>20%</b><span>faster sprints</span></div>
-    <div class="stat" style="--accent: var(--purple)"><b>15</b><span>devs led at peak</span></div>
-    <div class="stat" style="--accent: var(--blue)"><b>3</b><span>clouds in anger</span></div>
+    <div class="stat" style="--accent: var(--green)"><b>10</b><span>years building</span></div>
+    <div class="stat" style="--accent: var(--cyan)"><b>12+</b><span>products shipped</span></div>
+    <div class="stat" style="--accent: var(--amber)"><b>80%</b><span>faster APIs</span></div>
+    <div class="stat" style="--accent: var(--red)"><b>30%</b><span>faster deploys</span></div>
+    <div class="stat" style="--accent: var(--magenta)"><b>15</b><span>engineers led</span></div>
+    <div class="stat" style="--accent: var(--purple)"><b>3</b><span>cloud platforms</span></div>
   </div>
 </div>
 

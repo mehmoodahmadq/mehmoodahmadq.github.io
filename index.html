@@ -268,15 +268,48 @@
   .prod span { display: block; font-size: 0.8rem; color: var(--fg-dim); line-height: 1.55; }
   .prod em { display: block; margin-top: 9px; font-style: normal; font-size: 0.7rem; color: var(--fg-faint); }
 
-  /* ── education ───────────────────────────────── */
-  .edu-box {
-    background: var(--bg-panel); border: 1px solid var(--border);
-    border-radius: 10px; padding: 20px 22px;
+  /* ── availability ────────────────────────────── */
+  .avail {
+    display: flex; align-items: flex-start; gap: 12px;
+    margin: 22px 0 0; padding: 13px 16px;
+    background: rgba(74,222,128,0.06);
+    border: 1px solid rgba(74,222,128,0.25);
+    border-radius: 9px;
+    font-size: 0.84rem; color: var(--fg);
   }
-  .edu-box h3 { margin: 0 0 4px; font-size: 1rem; color: var(--amber); }
-  .edu-box .inst { color: var(--cyan); font-size: 0.85rem; margin: 0 0 12px; }
-  .edu-box p { margin: 0 0 8px; font-size: 0.86rem; color: var(--fg-dim); }
-  .trophy { color: var(--amber); }
+  .avail b { color: var(--green); font-weight: 700; }
+  .avail .dim { color: var(--fg-dim); font-size: 0.79rem; }
+  .pulse {
+    flex: none; width: 9px; height: 9px; margin-top: 7px;
+    border-radius: 50%; background: var(--green);
+    box-shadow: 0 0 0 0 rgba(74,222,128,0.6);
+    animation: pulse 2.2s infinite;
+  }
+  @keyframes pulse {
+    70%  { box-shadow: 0 0 0 9px rgba(74,222,128,0); }
+    100% { box-shadow: 0 0 0 0  rgba(74,222,128,0); }
+  }
+
+  /* ── stat strip ──────────────────────────────── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .stat {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent, var(--green));
+    border-radius: 9px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .stat b {
+    display: block; font-size: 1.5rem; font-weight: 700;
+    color: var(--accent, var(--green)); line-height: 1.15;
+  }
+  .stat span { font-size: 0.71rem; color: var(--fg-dim); }
 
   /* ── footer ──────────────────────────────────── */
   footer { padding: 44px 0 64px; }
@@ -330,8 +363,8 @@
 
       <p class="out" style="margin-top:18px">
         <span class="ok">➜</span> <span class="hi">Lead Full Stack Developer</span> &amp; Solutions Architect<br>
-        <span class="ok">➜</span> 🗓️ <span class="hi">10 years</span> shipping production systems &nbsp;·&nbsp; 📍 Lahore, Pakistan<br>
-        <span class="ok">➜</span> ☕ Turning caffeine into microservices since 2015
+        <span class="ok">➜</span> 🗓️ <span class="hi">10 years</span> shipping production systems &nbsp;·&nbsp; 📍 Lahore, Pakistan (PKT)<br>
+        <span class="ok">➜</span> 🏆 5th nationally, ACM-ICPC Lahore Regional &nbsp;·&nbsp; ☕ caffeine → microservices since 2015
       </p>
 
       <div class="badges">
@@ -341,6 +374,14 @@
         <span class="b4">🤖 <b>AI Integration</b></span>
         <span class="b5">☁️ <b>AWS · GCP · K8s</b></span>
         <span class="b6">🧩 <b>MEAN / MERN / LAMP</b></span>
+      </div>
+
+      <div class="avail">
+        <span class="pulse"></span>
+        <div>
+          <b>Available now</b> — open to lead engineering &amp; solutions architecture roles.<br>
+          <span class="dim">Contract or full-time &nbsp;·&nbsp; remote-first &nbsp;·&nbsp; PKT, overlapping EU all day and US-East mornings.</span>
+        </div>
       </div>
 
       <div class="links">
@@ -355,6 +396,17 @@
   </div>
 </div>
 
+<div class="wrap">
+  <div class="stats">
+    <div class="stat" style="--accent: var(--green)"><b>10</b><span>years shipping</span></div>
+    <div class="stat" style="--accent: var(--cyan)"><b>12+</b><span>products in prod</span></div>
+    <div class="stat" style="--accent: var(--amber)"><b>80%</b><span>API latency cut</span></div>
+    <div class="stat" style="--accent: var(--magenta)"><b>20%</b><span>faster sprints</span></div>
+    <div class="stat" style="--accent: var(--purple)"><b>6</b><span>devs led</span></div>
+    <div class="stat" style="--accent: var(--blue)"><b>3</b><span>clouds in anger</span></div>
+  </div>
+</div>
+
 <nav>
   <div class="wrap">
     <ul>
@@ -362,7 +414,6 @@
       <li><a href="#experience">~/experience</a></li>
       <li><a href="#skills">~/skills</a></li>
       <li><a href="#domains">~/domains</a></li>
-      <li><a href="#education">~/education</a></li>
       <li><a href="#contact">~/contact</a></li>
     </ul>
   </div>
@@ -604,21 +655,6 @@
   </div>
 </section>
 
-<!-- ══════════ EDUCATION ══════════ -->
-<section id="education">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="prompt"><span class="u">mehmood@dev</span><span class="s">:</span><span class="p">~</span><span class="s">$</span> <span class="c">cat</span> <span class="flag">education.txt</span></p>
-      <div class="rule">╔══════════════════════════════════════════════════════════════════════════╗</div>
-    </div>
-    <div class="edu-box">
-      <h3>🎓 BS (Hons.) Computer Science &nbsp;<span style="color:var(--fg-faint);font-size:.8rem">— 2017</span></h3>
-      <p class="inst">University of Central Punjab</p>
-      <p>Web and mobile app development, plus machine learning. Active in the IEEE and ACM UCP branches.</p>
-      <p class="trophy">🏆 <b>5th nationally</b> — ACM-ICPC Lahore Regional 2015 @ NUCES (FAST-NU)</p>
-    </div>
-  </div>
-</section>
 
 </main>
 
